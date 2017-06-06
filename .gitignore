@@ -2,3 +2,4 @@ bin
 obj
 .vs
 Properties
+node_modules/*
