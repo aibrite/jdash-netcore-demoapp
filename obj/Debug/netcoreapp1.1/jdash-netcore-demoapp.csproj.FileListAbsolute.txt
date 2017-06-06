@@ -1,8 +1,0 @@
-D:\Projects\jdashv2\jdash-netcore-demoapp\bin\Debug\netcoreapp1.1\jdash-netcore-demoapp.deps.json
-D:\Projects\jdashv2\jdash-netcore-demoapp\bin\Debug\netcoreapp1.1\jdash-netcore-demoapp.runtimeconfig.json
-D:\Projects\jdashv2\jdash-netcore-demoapp\bin\Debug\netcoreapp1.1\jdash-netcore-demoapp.runtimeconfig.dev.json
-D:\Projects\jdashv2\jdash-netcore-demoapp\bin\Debug\netcoreapp1.1\jdash-netcore-demoapp.dll
-D:\Projects\jdashv2\jdash-netcore-demoapp\bin\Debug\netcoreapp1.1\jdash-netcore-demoapp.pdb
-D:\Projects\jdashv2\jdash-netcore-demoapp\obj\Debug\netcoreapp1.1\jdash-netcore-demoapp.AssemblyInfo.cs
-D:\Projects\jdashv2\jdash-netcore-demoapp\obj\Debug\netcoreapp1.1\jdash-netcore-demoapp.dll
-D:\Projects\jdashv2\jdash-netcore-demoapp\obj\Debug\netcoreapp1.1\jdash-netcore-demoapp.pdb
