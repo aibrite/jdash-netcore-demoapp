@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 
-namespace WebApplication1
+namespace jdash_netcore_demoapp
 {
     public class Program
     {
