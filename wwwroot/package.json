@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jdash-ui": "^1.0.3"
+    "jdash-ui": "^1.0.4"
   }
 }
