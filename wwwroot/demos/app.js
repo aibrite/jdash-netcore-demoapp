@@ -1,3 +1,16 @@
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		clearTimeout(timeout);
+		timeout = setTimeout(function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		}, wait);
+		if (immediate && !timeout) func.apply(context, args);
+	};
+}
+
 (function (window) {
 
     function parseQuery(qstr) {
@@ -12,8 +25,6 @@
 
     var getDemoToken = function (email) {
         var url = 'https://app.jdash.io/api/v1';
-
-        // var url = 'https://app.jdash.io/api/v1';
 
         var instance = jdash.Http.default.create({
             baseURL: url
@@ -32,7 +43,7 @@
     app.prototype.init = function () {
         var self = this;
         this.query = parseQuery(window.location.search);
-        this.username = 'tansu';
+        this.username = 'my-user';
         this.dashboard = document.querySelector('#mydashboard');
         this.dashletModules = jdash.DashletModule.getModules();
         this.dashletList = document.querySelector('#dashlet-list');
@@ -68,17 +79,20 @@
         this.viewModeChangeHandler(this.dashboard.getAttribute('j-view-mode') || 'readonly');
         this.dashboard.layout.makeDroppable('[j-type="j-dashlet-module"]', true, this.dashletList);
 
-        var url = 'https://app.jdash.io/jdash/api/v1';
-
+        //removeIf(noprod)
         window.jdash.Provider.init({
             userToken: function (cb) {
-                //tansu: Removed
-                //cb(null,"-");
                 getDemoToken(self.query.mail).then(function (token) {
                     cb(null, token);
                 }).catch(function (err) { cb(err) });
             }
         })
+        //endRemoveIf(noprod)
+
+        //removeIf(nopremise)
+        jdash.Provider = new jdash.ProviderTypes.OnPremise({ url: '/jdash/api/v1' });
+        //endRemoveIf(nopremise)
+
         this.go();
     }
 
@@ -159,6 +173,11 @@
     }
 
     app.prototype.createDashletModuleEls = function () {
+        this.dashletModules.sort(function (a, b) {
+            var firstOrder = parseInt(a.attributes["data-order"].value);
+            var secondOrder = parseInt(b.attributes["data-order"].value);
+            return firstOrder - secondOrder;
+        })
         for (var i = 0; i < this.dashletModules.length; i++) {
             var module = this.dashletModules[i];
             var el = document.importNode(this.dashletListItemTemplate.content, true);
@@ -189,6 +208,7 @@
         jdash.ThemeManager.getThemes().forEach(function (theme) {
             var op = document.createElement('a');
             op.textContent = theme.name;
+            op.style.cursor = "pointer"
             this.themesEl.appendChild(op);
             op.addEventListener('click', this.changeTheme.bind(this, theme))
         }.bind(this))
@@ -221,21 +241,42 @@
         jdash.ThemeManager.setCurrentTheme(theme.name)
     }
 
+    // a check for different demo dashboards to suit for specified view
+    function isDemoDashboardSuitable(dashboard) {
+        if (dashboard.config && dashboard.config.demoDashboard) {
+            if (window.demoDashboardType == "jdash" && dashboard.config.bootstrapDefault) {
+                return false;
+            }
+
+            if (window.demoDashboardType == "bootstrap" && dashboard.config.jdashDefault) {
+                return false;
+            }
+        }
+
+
+        return true;
+    }
+
     app.prototype.createDashboardList = function (dashboards) {
         this.dashboardListContainer.innerHTML = '';
         dashboards.forEach(function (dashboard) {
+
             var el = document.importNode(this.dashboardListItemTemplate.content, true);
             var a = jdash.Helper.getFirstElementChild(el);
             a.addEventListener('click', this.loadDashboard.bind(this, dashboard, null));
 
             a.textContent = dashboard.title;
             a.setAttribute('dashboard-id', dashboard.id);
+
             this.dashboardListContainer.appendChild(a);
+
         }.bind(this))
     }
 
     app.prototype.loadDashboards = function () {
         return this.dashboard.provider.getMyDashboards().then(function (result) {
+            result.data = result.data.filter(function (dashboard) { return isDemoDashboardSuitable(dashboard); });
+
             this.createDashboardList(result.data);
             this.listingDashboards = result.data;
             return result;
@@ -268,8 +309,10 @@
                 console.log('Dashboard created with id:' + result.id);
                 model.id = result.id;
                 result.meta && (model.meta = result.meta);
+
                 this.loadDashboards();
                 this.loadDashboard(model);
+                startNewDashboardIntro && startNewDashboardIntro();
             }.bind(this)).catch(function (err) {
                 alert('Unable to create dashboard:' + err.message)
             }.bind(this))

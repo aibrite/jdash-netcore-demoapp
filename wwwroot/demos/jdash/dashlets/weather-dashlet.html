@@ -4,11 +4,11 @@
         min-height: 600px;
         overflow-y: auto;
     }
-    
+
     j-weather {
         width: 400px;
     }
-    
+
     article {
         text-align: center;
         background: rgba(255, 255, 255, .4);
@@ -16,32 +16,33 @@
         margin: 2em auto;
         padding: 1em;
     }
-    
+
     j-weather h2 {
         margin-bottom: 1.5em;
     }
-    
+
     j-weather p {
         font-size: 1.3em;
     }
+
     /* Units Toggle */
-    
+
     #toggle {
         padding: 0em 2em;
         float: right;
     }
-    
+
     #metric {
         border-top-left-radius: .3em;
         border-bottom-left-radius: .3em;
     }
-    
+
     #imperial {
         margin-left: -.26em;
         border-top-right-radius: .3em;
         border-bottom-right-radius: .3em;
     }
-    
+
     j-weather button {
         background-color: #e2e2e2;
         background-image: -webkit-gradient(linear, left top, left bottom, from(#e2e2e2), to(#bebebe));
@@ -52,7 +53,7 @@
         box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
         color: #444;
     }
-    
+
     j-weather button.active {
         background-color: #f5f5f5;
         background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
@@ -62,23 +63,24 @@
         border: 1px solid rgba(0, 0, 0, 0.1);
         color: #222;
     }
+
     /* Weather Data Styles */
-    
+
     j-weather .icon {
         display: inline;
         vertical-align: middle;
         margin-top: -1.5em;
     }
-    
+
     #temp {
         font-size: 3em;
     }
-    
+
     #units {
         font-size: 2em;
         vertical-align: super;
     }
-    
+
     #description,
     #daily {
         font-weight: bold;
@@ -87,12 +89,12 @@
 
 
 
-<j-dashlet id="j-weather" title="Weather Forecast">
+<j-dashlet id="j-weather" title="Weather" data-order="9">
     <template>
         <div class="weather-container">
             <form id="toggle">
                 <button type="button" id="cel">&deg;C</button>
-                <button type="button" id="far">&deg;F</button>
+                <!--<button type="button" id="far">&deg;F</button>-->
             </form>
             <article>
                 <section id="weather">
@@ -103,8 +105,6 @@
                 </section>
             </article>
         </div>
-    </template>
-
     </template>
     <script>
         jdash.define(function () {
@@ -221,7 +221,7 @@
                 }
             }
 
-        })
+        });
     </script>
 </j-dashlet>
 <j-dashlet-editor id="weather-dashlet-editor">
