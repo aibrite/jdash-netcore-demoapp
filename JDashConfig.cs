@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using JDash.NetCore.Api;
 using JDash.NetCore.Models;
 using JDash.NetCore.Provider.MsSQL;
@@ -25,7 +25,7 @@ namespace jdash_netcore_demoapp
             return new JSQLProvider(connectionString);
 
             // if you are using MySql uncomment below lines.
-            // string mySqlConnStr = "Server=127.0.01;Database=jdash;Uid=root;Pwd=1;";
+            // string mySqlConnStr = "Server=127.0.0.1;Database=jdash;Uid=root;Pwd=1;";
             // return new JDash.NetCore.Provider.MySQL.JMySQLProvider(mySqlConnStr);
         }
     }

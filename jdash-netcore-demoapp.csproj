@@ -1,22 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="JDash.NetCore.Api" Version="1.0.5" />
+    <PackageReference Include="JDash.NetCore.Provider.MsSQL" Version="1.0.2" />
+    <PackageReference Include="JDash.NetCore.Provider.MySQL" Version="1.0.7" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
-    <PackageReference Include="JDash.NetCore.Api" Version="*" />
-    <PackageReference Include="JDash.NetCore.Provider.MsSQL" Version="*" />
-    <PackageReference Include="JDash.NetCore.Provider.MySQL" Version="*" />
-
-    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="*" />
-
-    
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
 
 </Project>
