@@ -1,7 +1,7 @@
 {
   "name": "wwwroot",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Jdash",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

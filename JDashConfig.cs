@@ -13,7 +13,7 @@ namespace jdash_netcore_demoapp
         {
         }
 
-        public override JDashPrincipal GetPrincipal()
+        public override JDashPrincipal GetPrincipal(string authorizationHeader)
         {
             return new JDashPrincipal("demo user");
         }
@@ -21,12 +21,14 @@ namespace jdash_netcore_demoapp
         public override IJDashProvider GetProvider()
         {
             // Ensure you have a valid database.
-            string connectionString = "Your SQL Server connection string";
-            return new JSQLProvider(connectionString);
 
-            // if you are using MySql uncomment below lines.
-            // string mySqlConnStr = "Server=127.0.0.1;Database=jdash;Uid=root;Pwd=1;";
-            // return new JDash.NetCore.Provider.MySQL.JMySQLProvider(mySqlConnStr);
+            // *** TO USE MSSQL ** //
+            //string msSqlConnStr = "Server=10.0.2.15;Database=JDashTutorial;User Id=sa;Password=1.";
+            //return new JDash.NetCore.Provider.MsSQL.JSQLProvider(msSqlConnStr);
+
+            // *** TO USE MYSQL ** //
+            string mySqlConnStr = "Server=127.0.0.1;SslMode=none;Database=jdash;Uid=root;Pwd=1;";
+            return new JDash.NetCore.Provider.MySQL.JMySQLProvider(mySqlConnStr);
         }
     }
 

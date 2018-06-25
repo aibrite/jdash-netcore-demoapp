@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jdash-netcore-demoapp", "jdash-netcore-demoapp.csproj", "{8E1C094B-7069-4FDE-BDCD-9487706A6B5B}"
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jdash-netcore-demoapp", "jdash-netcore-demoapp.csproj", "{30843B4B-4248-4CBB-AD51-CDD870DB8266}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,9 +9,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8E1C094B-7069-4FDE-BDCD-9487706A6B5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E1C094B-7069-4FDE-BDCD-9487706A6B5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E1C094B-7069-4FDE-BDCD-9487706A6B5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E1C094B-7069-4FDE-BDCD-9487706A6B5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30843B4B-4248-4CBB-AD51-CDD870DB8266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30843B4B-4248-4CBB-AD51-CDD870DB8266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30843B4B-4248-4CBB-AD51-CDD870DB8266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30843B4B-4248-4CBB-AD51-CDD870DB8266}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -79,16 +79,6 @@ function debounce(func, wait, immediate) {
         this.viewModeChangeHandler(this.dashboard.getAttribute('j-view-mode') || 'readonly');
         this.dashboard.layout.makeDroppable('[j-type="j-dashlet-module"]', true, this.dashletList);
 
-        //removeIf(noprod)
-        window.jdash.Provider.init({
-            userToken: function (cb) {
-                getDemoToken(self.query.mail).then(function (token) {
-                    cb(null, token);
-                }).catch(function (err) { cb(err) });
-            }
-        })
-        //endRemoveIf(noprod)
-
         //removeIf(nopremise)
         jdash.Provider = new jdash.ProviderTypes.OnPremise({ url: '/jdash/api/v1' });
         //endRemoveIf(nopremise)

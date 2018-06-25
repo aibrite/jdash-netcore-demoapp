@@ -106,18 +106,8 @@ $(document).ready(function () {
         });
 
 
-        //removeIf(noprod)
-        window.jdash.Provider.init({
-            userToken: function (cb) {
-                getDemoToken(self.query.mail).then(function (token) {
-                    cb(null, token);
-                }).catch(function (err) { cb(err) });
-            }
-        })
-        //endRemoveIf(noprod)
-
         //removeIf(nopremise)
-        // jdash.Provider = new jdash.ProviderTypes.OnPremise({ url: '/jdash/api/v1' });
+        jdash.Provider = new jdash.ProviderTypes.OnPremise({ url: '/jdash/api/v1' });
         //endRemoveIf(nopremise)
 
         this.go();

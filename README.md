@@ -1,14 +1,15 @@
-# JDash .NetCore Demo Application
+﻿# JDash .NetCore Demo Application
 
-This is a complete .NetCore Demo Application, utilizing JDash, demonstrating the capabilities of JDash and ease of use with your applications.
+This is a complete .NetCore Demo Application demonstrating the capabilities of JDash and ease of use with your applications.
 
-If you would like to learn more about JDash, please see [JDash Home](http://doc.jdash.io).
+## How to run
 
-# Javascript Dashboard Framework
-JDash provides fully customizable Javascript + Backend platform for adding end user designable dashboards into your web application.
+1. Open JDashConfig.cs file, locate `GetProvider` method. Set your database connection string.
+2. Install jdash client library. Inside **wwwroot** folder execute `npm install`
 
-Visit the links below for more information:
+## More information
+Visit following links for more information:
 
-* [Online Demo](http://demo.jdash.io)
 * [Official Website](http://www.jdash.io)
 * [JDash Documentation](http://doc.jdash.io)
+* [Online Demo](http://demo.jdash.io)
