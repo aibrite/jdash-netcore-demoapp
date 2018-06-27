@@ -12,9 +12,9 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.0" />
     <PackageReference Include="JDash.NetCore.Models" Version="2.1.0" />
-    <PackageReference Include="JDash.NetCore.Provider.MsSQL" Version="2.1.0" />
     <PackageReference Include="JDash.NetCore.Provider.MySQL" Version="2.1.0" />
     <PackageReference Include="JDash.NetCore.Api" Version="2.1.2" />
+    <PackageReference Include="JDash.NetCore.Provider.MsSQL" Version="2.1.1" />
   </ItemGroup>
 
 </Project>
